@@ -1,0 +1,6 @@
+<div *ngFor="let pokemon of pokemons index as i" (click)=pokemonClick(i) class="list-pokemon">
+  <div>{{pokemon.name}}</div>
+  <img [src]="pokemon.imageUrl" alt="pokemon">
+</div>
+
+

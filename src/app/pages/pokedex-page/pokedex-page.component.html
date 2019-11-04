@@ -1,0 +1,16 @@
+<div class="main">
+
+  <div class="list-pokemon">
+    <app-pokemon-list
+    [pokemons]="allPokemons"
+    (detailPokemon)=getPokemon($event)>
+    </app-pokemon-list>
+  </div>
+
+  <div class="description">
+    <app-pokemon-detail [pokemon]="pokemonDetail"></app-pokemon-detail>
+  </div>
+
+</div>
+
+<button routerLink="/create"> Tu as trouvé un nouveau Pokemon ? </button>

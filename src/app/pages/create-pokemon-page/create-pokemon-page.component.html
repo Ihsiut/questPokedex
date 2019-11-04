@@ -1,0 +1,33 @@
+<form (ngsubmit)="myForm.valid && addPokemon()" #myForm="ngForm">
+  <label>Quel Pokémen as-tu découvert ? </label>
+  <p><input type="text" [(ngModel)]="newPokemon.name" name="name" required #name="ngModel"></p>
+  <div *ngIf="name.errors && myForm.submitted">
+    <div *ngIf="name.errors.required">
+      Name is required
+    </div>
+  </div>
+
+  <label>A quoi ressemble-t-il ?</label>
+  <p><input type="text" [(ngModel)]="newPokemon.imageUrl" name="imageUrl" required #imageUrl="ngModel"></p>
+  <div *ngIf="imageUrl.errors && myForm.submitted">
+    <div *ngIf="imageUrl.errors.required">
+      Image is required
+    </div>
+  </div>
+
+  <label> Ecris une description pour aider les autres dresseurs ! </label>
+  <p><input type="text" [(ngModel)]="newPokemon.description" name="description" required #description="ngModel"> </p>
+  <div *ngIf="description.errors && myForm.submitted">
+    <div *ngIf="description.errors.required">
+      Description is required
+    </div>
+  </div>
+  <button type="submit" >Ajouter</button>
+  <div *ngIf="myForm.valid && myForm.submitted">
+    <p>{{newPokemon.name}} a été ajouté à ton Pokédex ! </p>
+  </div>
+</form>
+<button routerLink="">Revenir aux Pokémons</button>
+
+
+
