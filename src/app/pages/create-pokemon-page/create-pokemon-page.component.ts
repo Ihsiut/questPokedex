@@ -15,21 +15,27 @@ export class CreatePokemonPageComponent implements OnInit {
     description: '',
     color : ''
   };
-  // const color = this.elRef.nativeElement.querySelector('.color-picker');
-  // this.renderer.setStyle(color, 'background-color', this.newPokemon.color);
 
-  constructor(private pokedexService: PokedexService) { }
+  constructor(private pokedexService: PokedexService,
+              private renderer: Renderer2,
+              private elRef: ElementRef) { }
 
 
     ngOnInit() {
     }
 
-  addPokemon() {
-    this.newPokemon.name = this.newPokemon.name;
-    this.newPokemon.imageUrl = this.newPokemon.imageUrl;
-    this.newPokemon.description = this.newPokemon.description;
-    this.newPokemon.color = this.newPokemon.color;
-    this.pokedexService.allPokemons.push(this.newPokemon);
-    console.log(this.newPokemon);
-  }
+    addPokemon() {
+      this.newPokemon.name = this.newPokemon.name;
+      this.newPokemon.imageUrl = this.newPokemon.imageUrl;
+      this.newPokemon.description = this.newPokemon.description;
+      this.newPokemon.color = this.newPokemon.color;
+      this.pokedexService.allPokemons.push(this.newPokemon);
+      console.log(this.newPokemon);
+    }
+
+    changeColor() {
+      const color = this.elRef.nativeElement.querySelector('.color-picker');
+      this.renderer.setStyle(color, 'background-color', this.newPokemon.color);
+
+    }
 }

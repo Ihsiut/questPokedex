@@ -23,16 +23,16 @@
     </div>
   </div>
 
-  <!-- <div class="choose-color">
+  <div class="choose-color">
     <label> Choisi sa couleur </label>
-    <div class="color-picker" background-color="newPokemon.color" ></div>
+    <div class="color-picker"  ></div>
   </div>
-    <p><input type="text" [(ngModel)]="newPokemon.color" name="color" required #description="ngModel"> </p>
+    <p><input type="text" [(ngModel)]="newPokemon.color" name="color" required #color="ngModel" (change)="changeColor()"> </p>
   <div *ngIf="color.errors && myForm.submitted">
     <div *ngIf="color.errors.required">
       Color is required
     </div>
-  </div> -->
+  </div>
 
   <button type="submit">Ajouter</button>
   <div *ngIf="myForm.valid && myForm.submitted">
