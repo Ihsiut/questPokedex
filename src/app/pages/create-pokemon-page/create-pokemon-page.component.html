@@ -1,4 +1,4 @@
-<form (ngsubmit)="myForm.valid && addPokemon()" #myForm="ngForm">
+<form (submit)="myForm.valid && addPokemon()" #myForm="ngForm">
   <label>Quel Pokémen as-tu découvert ? </label>
   <p><input type="text" [(ngModel)]="newPokemon.name" name="name" required #name="ngModel"></p>
   <div *ngIf="name.errors && myForm.submitted">
@@ -22,7 +22,19 @@
       Description is required
     </div>
   </div>
-  <button type="submit" >Ajouter</button>
+
+  <!-- <div class="choose-color">
+    <label> Choisi sa couleur </label>
+    <div class="color-picker" background-color="newPokemon.color" ></div>
+  </div>
+    <p><input type="text" [(ngModel)]="newPokemon.color" name="color" required #description="ngModel"> </p>
+  <div *ngIf="color.errors && myForm.submitted">
+    <div *ngIf="color.errors.required">
+      Color is required
+    </div>
+  </div> -->
+
+  <button type="submit">Ajouter</button>
   <div *ngIf="myForm.valid && myForm.submitted">
     <p>{{newPokemon.name}} a été ajouté à ton Pokédex ! </p>
   </div>

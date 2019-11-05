@@ -19,6 +19,7 @@ export class PokemonListComponent implements OnInit {
   pokemonClick(i) {
     this.detailPokemon.emit(this.pokemons[i]);
     console.log('Send Pokemon ' + this.pokemons[i].name);
+
     }
 
 }
